@@ -82,23 +82,23 @@
       
       function startQuiz(){
         var intervalId = setInterval(countDown, 1000);
-        }
+       
 
         function countDown(){
 
             time--;
     
             $(".time-left").html('<b>' + 'Time Left: ' + "<h2>" + time + "</h2>" + '</b>')
-            if (time === 0){
-                alert("hey");
+            if (time <= 0){
+                $(".time-left").html('<h2>' + "Time's up!" + '</h2>');
                 stop();
-                }
+              }
             };
+           };
       startQuiz();
-      countDown();
 
       // var windowTimeout = setTimeout(function(){
-      //   window.location = 'heyo.html';
+      //   window.locat ion = 'heyo.html';
       //   console.log(windowTimeout);
       // }, 60000);
 
