@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Armageddon Trivia</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
   </head>
   <body>
     <h1>! Trivia for the End of the World !</h1>
@@ -76,22 +77,25 @@
       var losses = 0;
       var unanswered = 0;
       var total = 5;   
-      var time = 30
+      var time = 5
 
       
       function startQuiz(){
-        intervalId = setInterval(countDown, 1000);
+        var intervalId = setInterval(countDown, 1000);
         }
 
         function countDown(){
+
             time--;
     
-            $(".time-left").html('<b>' + 'Time Left: ' + "<h2>" + time + "</h2>" + '</b>');
+            $(".time-left").html('<b>' + 'Time Left: ' + "<h2>" + time + "</h2>" + '</b>')
             if (time === 0){
+                alert("hey");
                 stop();
                 }
             };
       startQuiz();
+      countDown();
 
       // var windowTimeout = setTimeout(function(){
       //   window.location = 'heyo.html';
