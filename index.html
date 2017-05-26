@@ -6,9 +6,8 @@
   </head>
   <body>
     <h1>! Trivia for the End of the World !</h1>
-    <div id="time-left"> </div>
-    <div class = "secondClass">
-    <p id="demo"></p>
+      <p class ="time-left"> Time Left:  </p>
+      <div class = "secondClass">
       <h2> What kind of nuclear reaction does a thermonuclear bomb draw on? </h2>
         <form>
           <input type="radio" name="Reaction" class="Wrong"> Fission <br>
@@ -76,26 +75,23 @@
       var wins = 0; 
       var losses = 0;
       var unanswered = 0;
-      var total = 5;     
+      var total = 5;   
+      var time = 30
+
       
-      var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+      function startQuiz(){
+        intervalId = setInterval(countDown, 1000);
+        }
 
-// Update the count down every 1 second
-      var x = setInterval(function() {
-
-          var now = new Date().getTime();
-          
-          var distance = countDownDate - now;
-                  
-          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          
-          document.getElementById("demo").innerHTML = "Time Left: " + seconds + "s ";
-          
-          if (seconds = 0) {
-              clearInterval(x);
-              document.getElementById("demo").innerHTML = "You're done!";
-          }
-      }, 1000);
+        function countDown(){
+            time--;
+    
+            $(".time-left").html('<b>' + 'Time Left: ' + "<h2>" + time + "</h2>" + '</b>');
+            if (time === 0){
+                stop();
+                }
+            };
+      startQuiz();
 
       // var windowTimeout = setTimeout(function(){
       //   window.location = 'heyo.html';
