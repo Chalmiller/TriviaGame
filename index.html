@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Armageddon Trivia</title>
+  </head>
+  <body>
+    <h1>! Trivia for the End of the World !</h1>
+    <div id="time-left"> </div>
+    <div class = "secondClass">
+    <p id="demo"></p>
+      <h2> What kind of nuclear reaction does a thermonuclear bomb draw on? </h2>
+        <form>
+          <input type="radio" name="Reaction" class="Wrong"> Fission <br>
+          <input type="radio" name="Reaction" class="Wrong"> Fusion <br>
+          <input type="radio" name="Reaction" class="Wrong"> Entropy <br>
+          <input type="radio" name="Reaction" class="Right"> Fission and Fusion <br>
+        </form>
+      <br>
+      <h2> What was the bomb called that was dropped over Nagasaki? </h2>
+        <form>
+          <input type="radio" name="Bomb" class="Right"> Fat Man <br>
+          <input type="radio" name="Bomb" class="Wrong"> Skinny Man <br>
+          <input type="radio" name="Bomb" class="Wrong"> Ego <br>
+          <input type="radio" name="Bomb" class="Wrong"> Abysmal Earth Ship <br>
+        </form>
+      <br>
+      <h2> When was the title of the speech delivered by Eisenhower to the UN over nuclear arms control? </h2>
+        <form>
+          <input type="radio" name="Bomb" class="Wrong"> Atoms for Destruction <br>
+          <input type="radio" name="Bomb" class="Wrong"> New World Order <br>
+          <input type="radio" name="Bomb" class="Right"> Atoms for Peace <br>
+          <input type="radio" name="Bomb" class="Wrong"> Russia's Puppet <br>
+        </form>
+      <br>
+      <h2> How many times more powerful is a hydrogen bomb than a typical atom bomb? </h2>
+        <form>
+          <input type="radio" name="Bomb" class="Right"> 1000 <br>
+          <input type="radio" name="Bomb" class="Wrong"> 2 <br>
+          <input type="radio" name="Bomb" class="Wrong"> 10 <br>
+          <input type="radio" name="Bomb" class="Wrong"> 1/100 <br>
+        </form>
+      <br>
+      <h2> Bonus! How small are Donald Trump's hands? </h2>
+        <form>
+          <input type="radio" name="Bomb" class="Right"> Very Small <br>
+          <input type="radio" name="Bomb" class="Right"> Very Small <br>
+          <input type="radio" name="Bomb" class="Right"> Very Small <br>
+          <input type="radio" name="Bomb" class="Right"> Very Small <br>
+        </form>
+      <br>
+    </div>
+    <br>
+    <div class = "thirdClass">
+      <div class="rightAnswers">
+        <h3> Wins: 
+          <span id="wins">0</span>
+        </h3>
+      </div>
+      <div class="wrongAnswers">
+        <h3> Losses: 
+          <span id="losses">0</span>
+        </h3>
+      </div>
+      <div class="unAnswered">
+        <h3> Unanswered: 
+          <span id="unansweredquestions">0</span>
+        </h3>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.js"></script>
+    <script type="text/javascript">
+
+      var delayButtonAlert;
+      var wins = 0; 
+      var losses = 0;
+      var unanswered = 0;
+      var total = 5;     
+      
+      var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
+
+// Update the count down every 1 second
+      var x = setInterval(function() {
+
+          var now = new Date().getTime();
+          
+          var distance = countDownDate - now;
+                  
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          
+          document.getElementById("demo").innerHTML = "Time Left: " + seconds + "s ";
+          
+          if (seconds = 0) {
+              clearInterval(x);
+              document.getElementById("demo").innerHTML = "You're done!";
+          }
+      }, 1000);
+
+      // var windowTimeout = setTimeout(function(){
+      //   window.location = 'heyo.html';
+      //   console.log(windowTimeout);
+      // }, 60000);
+
+      $("#start").click(function(){
+        $(".secondClass").hide();
+      })
+
+      $(".Right").on("click", function() {
+        wins += 1;
+        total -= 1;
+        $("#wins").html(wins);
+        $("#unansweredquestions").html(total);
+        $("#losses").html(losses);
+      });
+
+      $(".Wrong").on("click", function() {
+        losses += 1;
+        total -= 1;
+        $("#wins").html(wins);
+        $("#unansweredquestions").html(total);
+        $("#losses").html(losses);
+      });
+    
+    </script>
+  </body>
+</html>
